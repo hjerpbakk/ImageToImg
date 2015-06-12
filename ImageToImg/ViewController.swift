@@ -1,15 +1,6 @@
-//
-//  ViewController.swift
-//  ImageToImg
-//
-//  Created by Runar Ovesen Hjerpbakk on 12/06/15.
-//  Copyright (c) 2015 Runar Ovesen Hjerpbakk. All rights reserved.
-//
-
 import Cocoa
 
-class ViewController: NSViewController {
-
+class ViewController: NSViewController {  
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +13,13 @@ class ViewController: NSViewController {
         }
     }
 
-
+    @IBAction func ImageChanged(sender: InputImageView) {
+        if (sender.droppedFilePath == nil) {
+            return
+        }
+        
+        let imageToImg = ImageToImg()
+        imageToImg.optimizeImageAndPutImgOnPasteboard(sender.droppedFilePath!, image: sender.image!)
+    }
 }
 

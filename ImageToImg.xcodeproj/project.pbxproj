@@ -16,6 +16,8 @@
 		32EAB9BA1B2ADB93005C486E /* ImageOptimizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EAB9B91B2ADB93005C486E /* ImageOptimizer.swift */; };
 		32EAB9BC1B2ADB9F005C486E /* HTMLGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EAB9BB1B2ADB9F005C486E /* HTMLGenerator.swift */; };
 		32EAB9BE1B2AE83F005C486E /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 32EAB9BD1B2AE83F005C486E /* star.png */; };
+		32EAB9C11B2B0443005C486E /* HTMLGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EAB9C01B2B0443005C486E /* HTMLGeneratorTests.swift */; };
+		32EAB9C31B2B17BA005C486E /* ImageToImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EAB9C21B2B17BA005C486E /* ImageToImg.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		32EAB9B91B2ADB93005C486E /* ImageOptimizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageOptimizer.swift; sourceTree = "<group>"; };
 		32EAB9BB1B2ADB9F005C486E /* HTMLGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLGenerator.swift; sourceTree = "<group>"; };
 		32EAB9BD1B2AE83F005C486E /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		32EAB9C01B2B0443005C486E /* HTMLGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLGeneratorTests.swift; sourceTree = "<group>"; };
+		32EAB9C21B2B17BA005C486E /* ImageToImg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageToImg.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,7 @@
 				32EAB9B71B2AD9FF005C486E /* InputImageView.swift */,
 				32EAB9B91B2ADB93005C486E /* ImageOptimizer.swift */,
 				32EAB9BB1B2ADB9F005C486E /* HTMLGenerator.swift */,
+				32EAB9C21B2B17BA005C486E /* ImageToImg.swift */,
 			);
 			path = ImageToImg;
 			sourceTree = "<group>";
@@ -109,6 +114,7 @@
 				32EAB9BD1B2AE83F005C486E /* star.png */,
 				327036AF1B2AD78A003339AD /* ImageOptimizerTests.swift */,
 				327036AD1B2AD78A003339AD /* Supporting Files */,
+				32EAB9C01B2B0443005C486E /* HTMLGeneratorTests.swift */,
 			);
 			path = ImageToImgTests;
 			sourceTree = "<group>";
@@ -222,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32EAB9C31B2B17BA005C486E /* ImageToImg.swift in Sources */,
 				3270369F1B2AD78A003339AD /* ViewController.swift in Sources */,
 				32EAB9BA1B2ADB93005C486E /* ImageOptimizer.swift in Sources */,
 				3270369D1B2AD78A003339AD /* AppDelegate.swift in Sources */,
@@ -234,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32EAB9C11B2B0443005C486E /* HTMLGeneratorTests.swift in Sources */,
 				327036B01B2AD78A003339AD /* ImageOptimizerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +351,7 @@
 		327036B41B2AD78A003339AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
@@ -359,6 +368,7 @@
 		327036B51B2AD78A003339AD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";

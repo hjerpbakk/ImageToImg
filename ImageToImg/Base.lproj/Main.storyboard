@@ -672,6 +672,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="oBz-lW-hOr"/>
+                        <connections>
+                            <action selector="ImageChanged:" target="XfG-lQ-9wD" id="6RI-da-bEm"/>
+                        </connections>
                     </imageView>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

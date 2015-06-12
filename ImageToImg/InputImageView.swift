@@ -1,6 +1,6 @@
 import Cocoa
 
-class InputImageView: NSImageView, NSDraggingDestination {
+class InputImageView: NSImageView, NSDraggingDestination {   
     // TODO: Check for ImageOptim install
     // TODO: Use ImageOptim supported file list if available
     let fileTypes = ["jpg", "jpeg", "bmp", "png", "gif"]
@@ -33,15 +33,15 @@ class InputImageView: NSImageView, NSDraggingDestination {
     override func performDragOperation(sender: NSDraggingInfo) -> Bool {
         if let board = sender.draggingPasteboard().propertyListForType("NSFilenamesPboardType") as? NSArray {
             if let imagePath = board[0] as? String {
-                // TODO: Do this only if ImageOptim is installed
-                let imageOptimizer = ImageOptimizer()
-                imageOptimizer.optimizeImageInPlace(imagePath)
+                droppedFilePath = imagePath
                 return true
             }
         }
+        
+        droppedFilePath = nil
         return false
-    }
-    
+    }    
+   
     func isImage(drag: NSDraggingInfo) -> Bool {
         if let board = drag.draggingPasteboard().propertyListForType("NSFilenamesPboardType") as? NSArray {
             if let url = NSURL(fileURLWithPath: (board[0] as! String)) {
