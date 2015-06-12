@@ -11,6 +11,10 @@ public class HTMLGenerator {
 
     public func imgHtml(imageName: String, width: CGFloat, height: CGFloat) -> String {
         let imageUrl = imageBasePath + imageName
-        return "<div style=\"width:100%; text-align:\(textAlign)\">\r\n\t<img src=\"\(imageUrl)\" alt=\"star\" width=\"\(width / 2)\" height=\"\(height / 2)\">\r\n</div>"
+        return "<div style=\"width:100%; text-align:\(textAlign)\">\r\n\t<img src=\"\(imageUrl)\" alt=\"star\" width=\"\(formatNumber(width / 2))\" height=\"\(formatNumber(height / 2))\">\r\n</div>"
+    }
+    
+    func formatNumber(number: CGFloat) -> NSString {
+        return (NSString(format: "%.01f", number))
     }
 }

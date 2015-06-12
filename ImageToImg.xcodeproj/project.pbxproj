@@ -46,6 +46,7 @@
 		32EAB9BD1B2AE83F005C486E /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		32EAB9C01B2B0443005C486E /* HTMLGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLGeneratorTests.swift; sourceTree = "<group>"; };
 		32EAB9C21B2B17BA005C486E /* ImageToImg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageToImg.swift; sourceTree = "<group>"; };
+		32EAB9C41B2B2049005C486E /* ImageToImg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ImageToImg.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +88,7 @@
 		327036991B2AD78A003339AD /* ImageToImg */ = {
 			isa = PBXGroup;
 			children = (
+				32EAB9C41B2B2049005C486E /* ImageToImg.entitlements */,
 				3270369C1B2AD78A003339AD /* AppDelegate.swift */,
 				3270369E1B2AD78A003339AD /* ViewController.swift */,
 				327036A01B2AD78A003339AD /* Images.xcassets */,
@@ -177,6 +179,11 @@
 					327036961B2AD78A003339AD = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = N3BMHYY53W;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					327036A81B2AD78A003339AD = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -353,6 +360,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ImageToImg/ImageToImg.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -370,6 +378,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ImageToImg/ImageToImg.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
