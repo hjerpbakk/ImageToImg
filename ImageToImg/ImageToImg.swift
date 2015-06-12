@@ -16,8 +16,5 @@ public class ImageToImg {
         var pboard = NSPasteboard.generalPasteboard()
         pboard.clearContents()
         pboard.writeObjects([html])
-        
-        // TODO: Show notification if allowed
     }
-    
 }

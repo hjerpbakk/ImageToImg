@@ -122,9 +122,6 @@
                                         <menuItem isSeparatorItem="YES" id="jI1-IL-NGy"/>
                                         <menuItem title="View Source" id="KE2-Ec-bTb">
                                             <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="ViewSource:" target="Voe-Tx-rLC" id="7db-5w-LkU"/>
-                                            </connections>
                                         </menuItem>
                                     </items>
                                 </menu>
@@ -166,7 +163,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <animations/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="oBz-lW-hOr"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="dnd" id="oBz-lW-hOr"/>
                         <connections>
                             <action selector="ImageChanged:" target="XfG-lQ-9wD" id="6RI-da-bEm"/>
                         </connections>
@@ -177,4 +174,7 @@
             <point key="canvasLocation" x="75" y="655"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dnd" width="499.94366455078125" height="499.94366455078125"/>
+    </resources>
 </document>
