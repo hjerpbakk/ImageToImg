@@ -14,11 +14,13 @@ public class ImageOptimizer {
     /// :param: path Path of the image to be optimized.
     ///
     /// :returns: Returns true.
-    public func optimizeImageInPlace(path: String) -> Bool {
+    public func optimizeImageInPlace(path: String) {
+        let manager = NSFileManager.defaultManager()
+        if (!manager.fileExistsAtPath(imageOptimPath)) {
+            return
+        }
+        
         shell(imageOptimPath, path)
- 
-        // TODO: What if imageoptim is not installed?
-        return true
     }
 
     func shell(args: String...) {

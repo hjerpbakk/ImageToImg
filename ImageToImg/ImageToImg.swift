@@ -6,7 +6,6 @@ public class ImageToImg {
     }
 
     public func optimizeImageAndPutImgOnPasteboard(imagePath: String, image: NSImage) {
-        // TODO: Do this only if ImageOptim is installed
         let imageOptimizer = ImageOptimizer()
         imageOptimizer.optimizeImageInPlace(imagePath)
         

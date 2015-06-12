@@ -1,9 +1,7 @@
 import Cocoa
 
 class InputImageView: NSImageView, NSDraggingDestination {   
-    // TODO: Check for ImageOptim install
-    // TODO: Use ImageOptim supported file list if available
-    let fileTypes = ["jpg", "jpeg", "bmp", "png", "gif"]
+    let fileTypes = ["jpg", "jpeg", "png", "gif"]
     var fileTypeIsOk = false
     var droppedFilePath: String?
     
