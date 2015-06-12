@@ -11,10 +11,11 @@
 		3270369F1B2AD78A003339AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3270369E1B2AD78A003339AD /* ViewController.swift */; };
 		327036A11B2AD78A003339AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 327036A01B2AD78A003339AD /* Images.xcassets */; };
 		327036A41B2AD78A003339AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 327036A21B2AD78A003339AD /* Main.storyboard */; };
-		327036B01B2AD78A003339AD /* ImageToImgTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327036AF1B2AD78A003339AD /* ImageToImgTests.swift */; };
+		327036B01B2AD78A003339AD /* ImageOptimizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327036AF1B2AD78A003339AD /* ImageOptimizerTests.swift */; };
 		32EAB9B81B2AD9FF005C486E /* InputImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EAB9B71B2AD9FF005C486E /* InputImageView.swift */; };
 		32EAB9BA1B2ADB93005C486E /* ImageOptimizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EAB9B91B2ADB93005C486E /* ImageOptimizer.swift */; };
 		32EAB9BC1B2ADB9F005C486E /* HTMLGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EAB9BB1B2ADB9F005C486E /* HTMLGenerator.swift */; };
+		32EAB9BE1B2AE83F005C486E /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 32EAB9BD1B2AE83F005C486E /* star.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +37,11 @@
 		327036A31B2AD78A003339AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		327036A91B2AD78A003339AD /* ImageToImgTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageToImgTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		327036AE1B2AD78A003339AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		327036AF1B2AD78A003339AD /* ImageToImgTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageToImgTests.swift; sourceTree = "<group>"; };
+		327036AF1B2AD78A003339AD /* ImageOptimizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOptimizerTests.swift; sourceTree = "<group>"; };
 		32EAB9B71B2AD9FF005C486E /* InputImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputImageView.swift; sourceTree = "<group>"; };
 		32EAB9B91B2ADB93005C486E /* ImageOptimizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageOptimizer.swift; sourceTree = "<group>"; };
 		32EAB9BB1B2ADB9F005C486E /* HTMLGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLGenerator.swift; sourceTree = "<group>"; };
+		32EAB9BD1B2AE83F005C486E /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +106,8 @@
 		327036AC1B2AD78A003339AD /* ImageToImgTests */ = {
 			isa = PBXGroup;
 			children = (
-				327036AF1B2AD78A003339AD /* ImageToImgTests.swift */,
+				32EAB9BD1B2AE83F005C486E /* star.png */,
+				327036AF1B2AD78A003339AD /* ImageOptimizerTests.swift */,
 				327036AD1B2AD78A003339AD /* Supporting Files */,
 			);
 			path = ImageToImgTests;
@@ -167,6 +170,7 @@
 				TargetAttributes = {
 					327036961B2AD78A003339AD = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = N3BMHYY53W;
 					};
 					327036A81B2AD78A003339AD = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -207,6 +211,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32EAB9BE1B2AE83F005C486E /* star.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,7 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				327036B01B2AD78A003339AD /* ImageToImgTests.swift in Sources */,
+				327036B01B2AD78A003339AD /* ImageOptimizerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,12 +344,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = ImageToImg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -352,12 +360,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = ImageToImg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
