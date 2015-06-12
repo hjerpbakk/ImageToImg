@@ -14,7 +14,7 @@ class ImageOptimizerTests: XCTestCase {
     func testExample() {
         let imageOptimizer = ImageOptimizer()
         
-        let succeeded = imageOptimizer.optimizeImageInPlace("star.png")
+        let succeeded = imageOptimizer.optimizeImageInPlace("ImageToImgTests/star.png")
         
         XCTAssert(succeeded)
     }
