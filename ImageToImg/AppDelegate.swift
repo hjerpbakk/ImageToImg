@@ -1,18 +1,7 @@
-//
-//  AppDelegate.swift
-//  ImageToImg
-//
-//  Created by Runar Ovesen Hjerpbakk on 12/06/15.
-//  Copyright (c) 2015 Runar Ovesen Hjerpbakk. All rights reserved.
-//
-
 import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-
-
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
     }
@@ -24,6 +13,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool {
         return true
     }
-
+    
+    @IBAction func ViewSource(sender: AnyObject) {
+        let codeURL = NSURL(string: "https://github.com/Sankra/ImageToImg")!
+        NSWorkspace.sharedWorkspace().openURL(codeURL)
+    }
 }
 
