@@ -16,7 +16,6 @@ class InputImageView: NSImageView, NSDraggingDestination {
         registerForDraggedTypes([NSFilenamesPboardType, NSURLPboardType, NSPasteboardTypeTIFF])
     }
   
-    // TODO: How to make image change when copy overlay is changed?
     override func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation {
         if isImage(sender) {
             self.fileTypeIsOk = true
@@ -37,6 +36,10 @@ class InputImageView: NSImageView, NSDraggingDestination {
             image = dndImage
             return .None
         }
+    }
+    
+    override func draggingExited(sender: NSDraggingInfo?) {
+        image = dndImage
     }
     
     override func performDragOperation(sender: NSDraggingInfo) -> Bool {
