@@ -16,5 +16,15 @@ public class ImageToImg {
         var pboard = NSPasteboard.generalPasteboard()
         pboard.clearContents()
         pboard.writeObjects([html])
+        
+        notify("Img tag copied to the clipboard", message: "Ready to be pasted 🔗")
+    }
+    
+    func notify(title: String, message: String) {
+        var notification = NSUserNotification()
+        notification.title = title
+        notification.informativeText = message
+        var center:NSUserNotificationCenter = NSUserNotificationCenter.defaultUserNotificationCenter()
+        center.deliverNotification(notification)
     }
 }
