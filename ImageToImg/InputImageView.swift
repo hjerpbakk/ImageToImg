@@ -14,6 +14,7 @@ class InputImageView: NSImageView, NSDraggingDestination {
         
         super.init(coder: coder)
         registerForDraggedTypes([NSFilenamesPboardType, NSURLPboardType, NSPasteboardTypeTIFF])
+        AppDelegate.imageView = self
     }
   
     override func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation {

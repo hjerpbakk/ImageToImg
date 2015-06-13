@@ -2,6 +2,8 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate  {
+    static var imageView: InputImageView?
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         NSUserNotificationCenter.defaultUserNotificationCenter().delegate = self
     }
@@ -20,7 +22,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
     
     func application(sender: NSApplication, openFile filename: String) -> Bool {
-        // TODO: Sett bilde som ble lagt på ikonet :)
+        let image = NSImage(contentsOfFile: filename)!
+        AppDelegate.imageView?.image = image
         return true
     }
     
