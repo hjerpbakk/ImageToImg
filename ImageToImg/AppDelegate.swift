@@ -22,14 +22,34 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
     
     func application(sender: NSApplication, openFile filename: String) -> Bool {
-        let image = NSImage(contentsOfFile: filename)!
-        AppDelegate.imageView?.droppedFilePath = filename
-        AppDelegate.imageView?.image = image
+        setImage(filename)
         return true
     }
     
     func userNotificationCenter(center: NSUserNotificationCenter, shouldPresentNotification notification: NSUserNotification) -> Bool {
         return true
+    }
+    
+    @IBAction func openImage(sender: NSMenuItem) {
+        var openPanel = NSOpenPanel()
+        openPanel.allowsMultipleSelection = false
+        openPanel.canChooseDirectories = false
+        openPanel.canCreateDirectories = false
+        openPanel.canChooseFiles = true
+        openPanel.allowedFileTypes = AppDelegate.imageView!.supportedExtensions
+        openPanel.beginWithCompletionHandler { (result) -> Void in
+            if result == NSFileHandlingPanelOKButton {
+                if let url = openPanel.URL {
+                    self.setImage(url.path!)
+                }
+            }
+        }
+    }
+    
+    func setImage(filename: String) {
+        let image = NSImage(contentsOfFile: filename)!
+        AppDelegate.imageView!.droppedFilePath = filename
+        AppDelegate.imageView!.image = image
     }
 }
 
