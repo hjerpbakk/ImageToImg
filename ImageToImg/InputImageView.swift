@@ -3,8 +3,7 @@ import Cocoa
 class InputImageView: NSImageView, NSDraggingDestination {   
     var droppedFilePath: String?
     
-    let fileTypes = ["jpg", "jpeg", "png", "gif"]
-    var fileTypeIsOk = false
+    var supportedExtensions: [String]
     let draggedImage: NSImage
     let dndImage: NSImage
     
@@ -12,7 +11,14 @@ class InputImageView: NSImageView, NSDraggingDestination {
         dndImage = NSImage(named: "dnd")!
         draggedImage = NSImage(named: "dragged")!
         
-        //let documentTypes = NSBundle.mainBundle().infoDictionary?["CFBundleDocumentTypes"]
+        supportedExtensions = [String]()
+        let documentTypes = NSBundle.mainBundle().infoDictionary?["CFBundleDocumentTypes"] as! NSArray
+        for docInfo in documentTypes {
+            let extensions = (docInfo as! NSDictionary)["CFBundleTypeExtensions"] as! NSArray
+            for ext in extensions {
+                supportedExtensions.append(ext as! String)
+            }
+        }
         
         super.init(coder: coder)
         registerForDraggedTypes([NSFilenamesPboardType, NSURLPboardType, NSPasteboardTypeTIFF])
@@ -21,18 +27,6 @@ class InputImageView: NSImageView, NSDraggingDestination {
   
     override func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation {
         if isImage(sender) {
-            self.fileTypeIsOk = true
-            image = draggedImage
-            return .Copy
-        } else {
-            self.fileTypeIsOk = false
-            image = dndImage
-            return .None
-        }
-    }
-    
-    override func draggingUpdated(sender: NSDraggingInfo) -> NSDragOperation {
-        if self.fileTypeIsOk {
             image = draggedImage
             return .Copy
         } else {
@@ -61,8 +55,8 @@ class InputImageView: NSImageView, NSDraggingDestination {
         if let board = drag.draggingPasteboard().propertyListForType("NSFilenamesPboardType") as? NSArray {
             if let url = NSURL(fileURLWithPath: (board[0] as! String)) {
                 let suffix = url.pathExtension!
-                for ext in self.fileTypes {
-                    if ext.lowercaseString == suffix {
+                for ext in self.supportedExtensions {
+                    if ext == suffix {
                         return true
                     }
                 }
