@@ -12,6 +12,8 @@ class InputImageView: NSImageView, NSDraggingDestination {
         dndImage = NSImage(named: "dnd")!
         draggedImage = NSImage(named: "dragged")!
         
+        //let documentTypes = NSBundle.mainBundle().infoDictionary?["CFBundleDocumentTypes"]
+        
         super.init(coder: coder)
         registerForDraggedTypes([NSFilenamesPboardType, NSURLPboardType, NSPasteboardTypeTIFF])
         AppDelegate.imageView = self
