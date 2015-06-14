@@ -19,11 +19,28 @@ class InputImageView: NSImageView, NSDraggingDestination {
         registerForDraggedTypes([NSFilenamesPboardType, NSURLPboardType, NSPasteboardTypeTIFF])
         AppDelegate.imageView = self
     }
+    
+    override var image : NSImage?{
+        didSet {
+            if (image == dndImage || image == draggedImage) {
+                return
+            }
+            
+            imageAlreadySet = true
+            ImageToImg.optimizeImageAndPutImgOnPasteboard(droppedFilePath!, image: image!)
+        }
+    }
   
     override func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation {
         if isImage(sender) {
             if (!imageAlreadySet) {
                 image = draggedImage
+            }
+            
+            if let imagePath = getFilePath(sender) {
+                droppedFilePath = imagePath
+            } else {
+                droppedFilePath = nil
             }
 
             return .Copy
@@ -37,15 +54,8 @@ class InputImageView: NSImageView, NSDraggingDestination {
     }
     
     override func draggingExited(sender: NSDraggingInfo?) {
-        image = dndImage
-    }
-    
-    override func draggingEnded(sender: NSDraggingInfo?) {
-        if let imagePath = getFilePath(sender) {
-            droppedFilePath = imagePath
-            imageAlreadySet = true
-        } else {
-            droppedFilePath = nil
+        if (!imageAlreadySet) {
+            image = dndImage
         }
     }
     

@@ -2,10 +2,9 @@ import Foundation
 import AppKit
 
 public class ImageToImg {
-    public init() {
-    }
-
-    public func optimizeImageAndPutImgOnPasteboard(imagePath: String, image: NSImage) {
+    public class func optimizeImageAndPutImgOnPasteboard(imagePath: String, image: NSImage) {
+        NSDocumentController.sharedDocumentController().noteNewRecentDocumentURL(NSURL(fileURLWithPath: imagePath)!)
+        
         let imageOptimizer = ImageOptimizer()
         imageOptimizer.optimizeImageInPlace(imagePath)
         

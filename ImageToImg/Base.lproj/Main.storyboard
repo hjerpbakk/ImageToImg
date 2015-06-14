@@ -166,9 +166,6 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <animations/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="dnd" id="oBz-lW-hOr"/>
-                        <connections>
-                            <action selector="ImageChanged:" target="XfG-lQ-9wD" id="6RI-da-bEm"/>
-                        </connections>
                     </imageView>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

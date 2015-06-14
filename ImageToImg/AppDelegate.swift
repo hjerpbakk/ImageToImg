@@ -23,6 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     
     func application(sender: NSApplication, openFile filename: String) -> Bool {
         let image = NSImage(contentsOfFile: filename)!
+        AppDelegate.imageView?.droppedFilePath = filename
         AppDelegate.imageView?.image = image
         return true
     }
