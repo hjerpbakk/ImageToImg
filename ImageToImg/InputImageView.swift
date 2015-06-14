@@ -7,6 +7,8 @@ class InputImageView: NSImageView, NSDraggingDestination {
     let draggedImage: NSImage
     let dndImage: NSImage
     
+    var imageAlreadySet = false
+    
     required init?(coder: NSCoder) {
         dndImage = NSImage(named: "dnd")!
         draggedImage = NSImage(named: "dragged")!
@@ -20,10 +22,16 @@ class InputImageView: NSImageView, NSDraggingDestination {
   
     override func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation {
         if isImage(sender) {
-            image = draggedImage
+            if (!imageAlreadySet) {
+                image = draggedImage
+            }
+
             return .Copy
         } else {
-            image = dndImage
+            if (!imageAlreadySet) {
+                image = dndImage
+            }
+            
             return .None
         }
     }
@@ -35,6 +43,7 @@ class InputImageView: NSImageView, NSDraggingDestination {
     override func draggingEnded(sender: NSDraggingInfo?) {
         if let imagePath = getFilePath(sender) {
             droppedFilePath = imagePath
+            imageAlreadySet = true
         } else {
             droppedFilePath = nil
         }
