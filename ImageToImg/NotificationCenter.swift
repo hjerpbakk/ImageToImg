@@ -5,7 +5,7 @@ class NotificationCenter {
         var notification = NSUserNotification()
         notification.title = title
         notification.informativeText = message
-        var center:NSUserNotificationCenter = NSUserNotificationCenter.defaultUserNotificationCenter()
+        var center = NSUserNotificationCenter.defaultUserNotificationCenter()
         center.deliverNotification(notification)
     }
 }
