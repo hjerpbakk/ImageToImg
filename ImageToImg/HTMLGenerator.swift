@@ -5,12 +5,13 @@ public class HTMLGenerator {
     let textAlign: String
     
     public init() {
-        imageBasePath = "../s/"
+        imageBasePath = "http://hjerpbakk.com/s/"
         textAlign = "center"
     }
 
+    // TODO: Add description other than "star"
     public func imgHtml(imageName: String, width: CGFloat, height: CGFloat) -> String {
-        let imageUrl = imageBasePath + imageName
+        let imageUrl = imageBasePath + imageName.stringByReplacingOccurrencesOfString(" ", withString: "-")
         return "<div style=\"width:100%; text-align:\(textAlign)\">\r\n\t<img src=\"\(imageUrl)\" alt=\"star\" width=\"\(formatNumber(width / 2))\" height=\"\(formatNumber(height / 2))\">\r\n</div>"
     }
     

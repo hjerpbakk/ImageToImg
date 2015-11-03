@@ -3,16 +3,17 @@ import AppKit
 
 public class ImageToImg {
     public class func optimizeImageAndPutImgOnPasteboard(imagePath: String, image: NSImage) {
-        NSDocumentController.sharedDocumentController().noteNewRecentDocumentURL(NSURL(fileURLWithPath: imagePath)!)
+        let fileURLWithPath = NSURL(fileURLWithPath: imagePath)
+        NSDocumentController.sharedDocumentController().noteNewRecentDocumentURL(fileURLWithPath)
         
         let imageOptimizer = ImageOptimizer()
         imageOptimizer.optimizeImageInPlace(imagePath)
         
-        let imageName = imagePath.lastPathComponent
+        let imageName = fileURLWithPath.lastPathComponent
         let htmlGenerator = HTMLGenerator()
-        var html = htmlGenerator.imgHtml(imageName, width: image.size.width, height: image.size.height)
+        let html = htmlGenerator.imgHtml(imageName!, width: image.size.width, height: image.size.height)
         
-        var pboard = NSPasteboard.generalPasteboard()
+        let pboard = NSPasteboard.generalPasteboard()
         pboard.clearContents()
         pboard.writeObjects([html])
         

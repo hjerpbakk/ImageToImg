@@ -2,10 +2,10 @@ import Foundation
 
 class NotificationCenter {
     class func notify(title: String, message: String) {
-        var notification = NSUserNotification()
+        let notification = NSUserNotification()
         notification.title = title
         notification.informativeText = message
-        var center = NSUserNotificationCenter.defaultUserNotificationCenter()
+        let center = NSUserNotificationCenter.defaultUserNotificationCenter()
         center.deliverNotification(notification)
     }
 }

@@ -1,6 +1,6 @@
 import Cocoa
 
-class InputImageView: NSImageView, NSDraggingDestination {   
+class InputImageView: NSImageView {
     var droppedFilePath: String?
     
     var supportedExtensions: [String]
@@ -71,9 +71,8 @@ class InputImageView: NSImageView, NSDraggingDestination {
    
     func isImage(drag: NSDraggingInfo) -> Bool {
         if let imagePath = getFilePath(drag) {
-            if let url = NSURL(fileURLWithPath: imagePath) {
-                return contains(supportedExtensions, url.pathExtension!)
-            }
+            let url = NSURL(fileURLWithPath: imagePath)
+            return supportedExtensions.contains(url.pathExtension!)
         }
         
         return false
