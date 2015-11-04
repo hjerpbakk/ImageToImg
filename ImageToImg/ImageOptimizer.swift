@@ -11,9 +11,9 @@ public class ImageOptimizer {
     
     /// Optimizes the image with the given path using `ImageOptim`.
     ///
-    /// :param: path Path of the image to be optimized.
+    /// - parameter path: Path of the image to be optimized.
     ///
-    /// :returns: Returns true.
+    /// - returns: Returns true.
     public func optimizeImageInPlace(path: String) {
         let manager = NSFileManager.defaultManager()
         if (!manager.fileExistsAtPath(imageOptimPath)) {
