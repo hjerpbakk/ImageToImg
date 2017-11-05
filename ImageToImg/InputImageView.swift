@@ -16,7 +16,7 @@ class InputImageView: NSImageView {
         super.init(coder: coder)
         
         populateSupportedFileTypeList()
-        registerForDraggedTypes([NSFilenamesPboardType, NSURLPboardType, NSPasteboardTypeTIFF])
+        register(forDraggedTypes: [NSFilenamesPboardType, NSURLPboardType, NSPasteboardTypeTIFF])
         AppDelegate.imageView = self
     }
     
@@ -31,7 +31,7 @@ class InputImageView: NSImageView {
         }
     }
   
-    override func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation {
+    override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
         if isImage(sender) {
             if (!imageAlreadySet) {
                 image = draggedImage
@@ -43,24 +43,24 @@ class InputImageView: NSImageView {
                 droppedFilePath = nil
             }
 
-            return .Copy
+            return .copy
         } else {
             if (!imageAlreadySet) {
                 image = dndImage
             }
             
-            return .None
+            return NSDragOperation()
         }
     }
     
-    override func draggingExited(sender: NSDraggingInfo?) {
+    override func draggingExited(_ sender: NSDraggingInfo?) {
         if (!imageAlreadySet) {
             image = dndImage
         }
     }
     
     func populateSupportedFileTypeList() {
-        let documentTypes = NSBundle.mainBundle().infoDictionary?["CFBundleDocumentTypes"] as! NSArray
+        let documentTypes = Bundle.main.infoDictionary?["CFBundleDocumentTypes"] as! NSArray
         for docInfo in documentTypes {
             let extensions = (docInfo as! NSDictionary)["CFBundleTypeExtensions"] as! NSArray
             for ext in extensions {
@@ -69,18 +69,18 @@ class InputImageView: NSImageView {
         }
     }
    
-    func isImage(drag: NSDraggingInfo) -> Bool {
+    func isImage(_ drag: NSDraggingInfo) -> Bool {
         if let imagePath = getFilePath(drag) {
-            let url = NSURL(fileURLWithPath: imagePath)
-            return supportedExtensions.contains(url.pathExtension!)
+            let url = URL(fileURLWithPath: imagePath)
+            return supportedExtensions.contains(url.pathExtension)
         }
         
         return false
     }
     
-    func getFilePath(sender: NSDraggingInfo?) -> String? {
+    func getFilePath(_ sender: NSDraggingInfo?) -> String? {
         if let draggingInfo = sender {
-            if let board = draggingInfo.draggingPasteboard().propertyListForType("NSFilenamesPboardType") as? NSArray {
+            if let board = draggingInfo.draggingPasteboard().propertyList(forType: "NSFilenamesPboardType") as? NSArray {
                 return board[0] as? String
             }
         }
